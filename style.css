@@ -1,5 +1,5 @@
 /* ============================================================
-   STYLE.CSS — NOVA Space Planning Intelligence
+   STYLE.CSS — NOVA Space Planning Intelligence (Cesium Edition)
    ============================================================ */
 
 :root {
@@ -51,7 +51,7 @@ html, body {
   overflow: hidden;
 }
 
-/* Replace #scene with #cesiumContainer */
+/* ---------- Cesium Container Override ---------- */
 #cesiumContainer {
   position: absolute;
   inset: 0;
@@ -67,22 +67,12 @@ html, body {
   height: 100%;
 }
 
-/* Push FX overlay slightly up so Cesium controls (if you enable them) are clickable */
-.fx-vignette {
-  z-index: 2;
-  pointer-events: none;
-}
-.fx-grid {
-  z-index: 3;
-
-}
-
 /* ---------- Atmospheric FX ---------- */
 .fx-vignette {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 5;
+  z-index: 2; /* Pulled slightly above the map but behind UI */
   background: radial-gradient(ellipse at center, transparent 40%, rgba(2, 5, 10, 0.55) 100%);
 }
 
@@ -90,7 +80,7 @@ html, body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 4;
+  z-index: 3;
   opacity: 0.035;
   background-image:
     linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
